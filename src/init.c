@@ -54,22 +54,22 @@ void Init(Game *pGame) {
         exit(EXIT_FAILURE);
     }
 
-    pGame->pPadle1->x = 200;
-    pGame->pPadle1->y = 200;
-    pGame->pPadle1->h = 50;
-    pGame->pPadle1->w = 10;
+    pGame->pPadle1->x = 100;
+    pGame->pPadle1->y = 250;
+    pGame->pPadle1->h = 150;
+    pGame->pPadle1->w = 20;
     pGame->pPadle1->speed = 50;
 
-    pGame->pPadle2->x = 400;
-    pGame->pPadle2->y = 400;
-    pGame->pPadle2->h = 50;
-    pGame->pPadle2->w = 10;
+    pGame->pPadle2->x = 700;
+    pGame->pPadle2->y = 250;
+    pGame->pPadle2->h = 150;
+    pGame->pPadle2->w = 20;
     pGame->pPadle2->speed = 50;
 
-    pGame->pBall->x = 550;
-    pGame->pBall->y = 150;
-    pGame->pBall->h = 1;
-    pGame->pBall->w = 1;
+    pGame->pBall->x = SCREEN_WIDTH / 2;
+    pGame->pBall->y = SCREEN_HEIGHT / 2;
+    pGame->pBall->h = 20;
+    pGame->pBall->w = 20;
     pGame->pBall->speed = 50;
     pGame->pBall->dirX = 0;
     pGame->pBall->dirY = 0;
