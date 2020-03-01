@@ -58,12 +58,30 @@ void Update(Game *pGame, Uint32 deltaTime) {
     if(RectCollision(pGame->pPadle2, pGame->pBall))
     {
         pGame->pBall->x =  pGame->pPadle2->x - pGame->pBall->w - 1;
+        
+        //Calcul rebond sur Y
+        float ballCenter = pGame->pBall->y + pGame->pBall->h / 2.0;
+        pGame->pBall->dirY = (ballCenter - pGame->pPadle2->y) / pGame->pPadle2->h;
+        pGame->pBall->dirY -= 0.5;
+        if (pGame->pBall->dirY>0.5) pGame->pBall->dirY=0.5;
+        if (pGame->pBall->dirY<-0.5) pGame->pBall->dirY=-0.5;
+        if (pGame->pBall->dirY<0) pGame->pBall->dirX = 1+pGame->pBall->dirY;
+        else pGame->pBall->dirX = 1-pGame->pBall->dirY;
+        
         pGame->pBall->dirX *= -1;
     }
     if(RectCollision(pGame->pPadle1, pGame->pBall))
     {
         pGame->pBall->x = pGame->pPadle1->x + pGame->pPadle1->w + 1;
-        pGame->pBall->dirX *= -1;
+        
+        //Calcul rebond sur Y
+        float ballCenter = pGame->pBall->y + pGame->pBall->h / 2.0;
+        pGame->pBall->dirY = (ballCenter - pGame->pPadle1->y) / pGame->pPadle1->h;
+        pGame->pBall->dirY -= 0.5;
+        if (pGame->pBall->dirY>0.5) pGame->pBall->dirY=0.5;
+        if (pGame->pBall->dirY<-0.5) pGame->pBall->dirY=-0.5;
+        if (pGame->pBall->dirY<0) pGame->pBall->dirX = 1+pGame->pBall->dirY;
+        else pGame->pBall->dirX = 1-pGame->pBall->dirY;
     }
 }
 
