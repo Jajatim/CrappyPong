@@ -1,7 +1,11 @@
 #ifndef STRUCT_H_INCLUDED
 #define STRUCT_H_INCLUDED
 
-#include "SDL.h"
+#ifdef _WIN32
+    #include "SDL.h"
+#else //#elif __linux__ 
+    #include <SDL2/SDL.h>
+#endif
 
 
 typedef struct Mouse {
@@ -25,26 +29,11 @@ typedef struct Keyboard {
     int KeySpace;
 } Keyboard;
 
-typedef struct Planet {
-    float x;
-    float y;
-    float w;
-    float h;
-    float weight;
-    float speedX;
-    float speedY;
-    Uint8 r;
-    Uint8 g;
-    Uint8 b;
-} Planet;
-
 typedef struct Game {
     SDL_Window *pWindow;
     SDL_Renderer *pRenderer;
     Mouse *pMouse;
     Keyboard *pKeyboard;
-
-    Planet *pPlanets;
 } Game;
 
 #endif // STRUCT_H_INCLUDED

@@ -3,7 +3,11 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "SDL.h"
+#ifdef _WIN32
+    #include "SDL.h"
+#else //#elif __linux__ 
+    #include <SDL2/SDL.h>
+#endif
 #include "define.h"
 #include "struct.h"
 

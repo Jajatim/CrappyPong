@@ -2,7 +2,11 @@
 #define RENDER_H_INCLUDED
 
 #include <stdio.h>
-#include "SDL.h"
+#ifdef _WIN32
+    #include "SDL.h"
+#else //#elif __linux__ 
+    #include <SDL2/SDL.h>
+#endif
 #include "struct.h"
 #include "define.h"
 

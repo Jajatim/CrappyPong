@@ -3,7 +3,12 @@
 #include <stdio.h>
 
 //Other libraries
-#include "SDL.h"
+#ifdef _WIN32
+    #include "SDL.h"
+#else //#elif __linux__ 
+    #include <SDL2/SDL.h>
+#endif
+
 
 //Local includes
 #include "define.h"
@@ -15,7 +20,8 @@
 #include "render.h"
 
 
-int main(int argc, char** argv) {
+
+int main(/*int argc, char** argv*/) {
     
     //Master Object creation & init
     Game *pGame = calloc(1, sizeof(Game));  
@@ -24,6 +30,7 @@ int main(int argc, char** argv) {
         exit(EXIT_FAILURE);
     }
 
+    //Init SDL & stuff
     Init(pGame);
 
     //Main variables
