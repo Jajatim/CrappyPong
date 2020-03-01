@@ -38,6 +38,9 @@ $(NAME):
 #	$(info Compiling $< into $@)
 	$(CC) $(CFLAGS) -c $(call FixPath, $<) -o $(call FixPath, $@) $(call FixPath, $(SDLPATH))
 
+linux:
+	clear && gcc src/*.c -lm -o Game `sdl2-config --cflags --libs` && ./Game
+
 clean:
 	$(DEL) $(call FixPath, $(OBJ))
 
