@@ -1,88 +1,65 @@
 #include "update.h"
 
 void Update(Game *pGame, Uint32 deltaTime) {
-    /*
-    Mouse
-        int MouseX;
-        int MouseY;
-        int MouseLeftClic;
-        int MouseRightClic;
-        int MouseWheelUp;
-        int MouseWheelDown;
-        
-    Keyboard
-        int ArrowUp;
-        int ArrowLeft;
-        int ArrowDown;
-        int ArrowRight;
-        int Keyz;
-        int Keyq;
-        int Keys;
-        int Keyd;
-        int KeySpace;
 
-    Example : 
-        pGame->pKeyboard->ArrowUp
-    */
-
+    //Mouvement padle joueur droite
     if (pGame->pKeyboard->ArrowUp) {
         pGame->pPadle2->y -= pGame->pPadle2->speed * deltaTime;
         if(pGame->pPadle2->y < 5)
             pGame->pPadle2->y = 5;
     }
-
     if (pGame->pKeyboard->ArrowDown) {
             pGame->pPadle2->y += pGame->pPadle2->speed * deltaTime;
         if(pGame->pPadle2->y + pGame->pPadle2->h > SCREEN_HEIGHT - 5)
             pGame->pPadle2->y = (SCREEN_HEIGHT - pGame->pPadle2->h) - 5;
     }
 
-
+    //Mouvement padle joueur gauche
     if (pGame->pKeyboard->Keyz) {
         pGame->pPadle1->y -= pGame->pPadle1->speed * deltaTime;
         if(pGame->pPadle1->y < 5)
             pGame->pPadle1->y = 5;
     }
-
     if (pGame->pKeyboard->Keys) {
             pGame->pPadle1->y += pGame->pPadle1->speed * deltaTime;
         if(pGame->pPadle1->y + pGame->pPadle1->h > SCREEN_HEIGHT - 5)
             pGame->pPadle1->y  = SCREEN_HEIGHT - pGame->pPadle1->h - 5;
     }
 
+    //Mouvement balle
     pGame->pBall->x += pGame->pBall->speed * deltaTime * pGame->pBall->dirX;
     pGame->pBall->y += pGame->pBall->speed * deltaTime * pGame->pBall->dirY;
 
+    //Scores
     if(pGame->pBall->x  + pGame->pBall->w > SCREEN_WIDTH)
     {
         ReInit(pGame);
         pGame->scoreP1++;
+        printf("%d - %d\n",pGame->scoreP1,pGame->scoreP2);
     }
-
     if(pGame->pBall->x < 0)
     {
         ReInit(pGame);
         pGame->scoreP2++;
+        printf("%d - %d\n",pGame->scoreP1,pGame->scoreP2);
     }
 
-    if(pGame->pBall->y  + pGame->pBall->h > SCREEN_HEIGHT)
-    {
+    //Collision balle/murs
+    if(pGame->pBall->y  + pGame->pBall->h > SCREEN_HEIGHT) {
         pGame->pBall->y = SCREEN_HEIGHT - pGame->pBall->h;
         pGame->pBall->dirY *= -1;
     }
-
-    if(pGame->pBall->y < 0)
-    {
+    if(pGame->pBall->y < 0) {
         pGame->pBall->y = 0;
         pGame->pBall->dirY *= -1;
     }
 
+    //Collision padles
     if(RectCollision(pGame->pPadle2, pGame->pBall))
     {
         pGame->pBall->x =  pGame->pPadle2->x - pGame->pBall->w - 1;
         pGame->pBall->dirX *= -1;
     }
-
     if(RectCollision(pGame->pPadle1, pGame->pBall))
     {
         pGame->pBall->x = pGame->pPadle1->x + pGame->pPadle1->w + 1;
