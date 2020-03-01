@@ -2,6 +2,11 @@
 
 void Update(Game *pGame, Uint32 deltaTime) {
 
+    //Demarage de la partie 
+    if (pGame->pKeyboard->KeySpace && pGame->pBall->dirX == 0) {
+        pGame->pBall->dirX = 1;
+    }
+
     //Mouvement padle joueur droite
     if (pGame->pKeyboard->ArrowUp) {
         pGame->pPadle2->y -= pGame->pPadle2->speed * deltaTime;
@@ -126,6 +131,6 @@ void ReInit(Game *pGame){
     pGame->pBall->y = (SCREEN_HEIGHT / 2.0) - (pGame->pBall->h / 2.0);
     
     pGame->pBall->speed = 0.50;
-    pGame->pBall->dirX = -1;
+    pGame->pBall->dirX = 0;
     pGame->pBall->dirY = 0;
 }
