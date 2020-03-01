@@ -33,7 +33,7 @@ void Update(Game *pGame, Uint32 deltaTime) {
 
     if (pGame->pKeyboard->ArrowDown) {
             pGame->pPadle2->y += pGame->pPadle2->speed * deltaTime;
-        if(pGame->pPadle2->y > (SCREEN_HEIGHT - pGame->pPadle2->h) - 5)
+        if(pGame->pPadle2->y + pGame->pPadle2->h > SCREEN_HEIGHT - 5)
             pGame->pPadle2->y = (SCREEN_HEIGHT - pGame->pPadle2->h) - 5;
     }
 
@@ -46,7 +46,7 @@ void Update(Game *pGame, Uint32 deltaTime) {
 
     if (pGame->pKeyboard->Keys) {
             pGame->pPadle1->y += pGame->pPadle1->speed * deltaTime;
-        if(pGame->pPadle1->y > (SCREEN_HEIGHT - pGame->pPadle1->h) - 5)
-            pGame->pPadle1->y = (SCREEN_HEIGHT - pGame->pPadle1->h) - 5;
+        if(pGame->pPadle1->y + pGame->pPadle1->h > SCREEN_HEIGHT - 5)
+            pGame->pPadle1->y  = SCREEN_HEIGHT - pGame->pPadle1->h - 5;
     }
 }
