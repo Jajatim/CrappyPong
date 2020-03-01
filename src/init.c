@@ -68,7 +68,7 @@ void Init(Game *pGame) {
     pGame->pPadle2->w = 20;
 
     pGame->pPadle2->x = (SCREEN_WIDTH - 20) - pGame->pPadle2->w;
-    pGame->pPadle2->y = (SCREEN_HEIGHT / 2) - (pGame->pPadle1->h / 2);
+    pGame->pPadle2->y = (SCREEN_HEIGHT / 2) - (pGame->pPadle2->h / 2);
 
     pGame->pPadle2->speed = 50;
 
