@@ -32,44 +32,4 @@ void Init(Game *pGame) {
         fprintf(stderr, "ERROR : Keyboard creation failed.");
         exit(EXIT_FAILURE);
     }
-
-    //Init planets
-    pGame->pPlanets = calloc(1, sizeof(Planet) * 3);
-    if (pGame->pPlanets == NULL){
-        fprintf(stderr, "ERROR : Planet creation failed.");
-        exit(EXIT_FAILURE);
-    }
-
-    pGame->pPlanets[0].w = 50;
-    pGame->pPlanets[0].h = 50;
-    pGame->pPlanets[0].x = SCREEN_WIDTH / 2.0 - pGame->pPlanets[0].w / 2.0;
-    pGame->pPlanets[0].y = SCREEN_HEIGHT / 2.0 - pGame->pPlanets[0].h / 2.0;
-    pGame->pPlanets[0].weight = 10000;
-    pGame->pPlanets[0].speedX = 0;
-    pGame->pPlanets[0].speedY = 0;
-    pGame->pPlanets[0].r = 255;
-    pGame->pPlanets[0].g = 0;
-    pGame->pPlanets[0].b = 0;
-
-    pGame->pPlanets[1].w = 10;
-    pGame->pPlanets[1].h = 10;
-    pGame->pPlanets[1].x = SCREEN_WIDTH / 4.0 - pGame->pPlanets[1].w / 2.0;
-    pGame->pPlanets[1].y = SCREEN_HEIGHT / 4.0 - pGame->pPlanets[1].h / 2.0;
-    pGame->pPlanets[1].weight = 10;
-    pGame->pPlanets[1].speedX = 0.75;
-    pGame->pPlanets[1].speedY = -0.75;
-    pGame->pPlanets[1].r = 0;
-    pGame->pPlanets[1].g = 0;
-    pGame->pPlanets[1].b = 255;
-
-    pGame->pPlanets[2].w = 10;
-    pGame->pPlanets[2].h = 10;
-    pGame->pPlanets[2].x = SCREEN_WIDTH / 8.0 - pGame->pPlanets[2].w / 2.0;
-    pGame->pPlanets[2].y = SCREEN_HEIGHT / 8.0 - pGame->pPlanets[2].h / 2.0;
-    pGame->pPlanets[2].weight = 10;
-    pGame->pPlanets[2].speedX = 0.5;
-    pGame->pPlanets[2].speedY = -0.5;
-    pGame->pPlanets[2].r = 0;
-    pGame->pPlanets[2].g = 255;
-    pGame->pPlanets[2].b = 0;
 }

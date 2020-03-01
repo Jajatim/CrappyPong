@@ -2,6 +2,7 @@
 #define UPDATE_H_INCLUDED
 
 #include <stdio.h>
+#include <math.h>
 #include "struct.h"
 #include "define.h"
 
