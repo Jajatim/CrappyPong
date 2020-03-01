@@ -61,7 +61,7 @@ void Init(Game *pGame) {
     pGame->pPadle1->x = 20;
     pGame->pPadle1->y = (SCREEN_HEIGHT / 2) - (pGame->pPadle1->h / 2);
 
-    pGame->pPadle1->speed = 0.25;
+    pGame->pPadle1->speed = 0.5;
 
     //pPadle2
     pGame->pPadle2->h = 150;
@@ -70,7 +70,7 @@ void Init(Game *pGame) {
     pGame->pPadle2->x = (SCREEN_WIDTH - 20) - pGame->pPadle2->w;
     pGame->pPadle2->y = (SCREEN_HEIGHT / 2) - (pGame->pPadle2->h / 2);
 
-    pGame->pPadle2->speed = 0.25;
+    pGame->pPadle2->speed = 0.5;
 
     //pBall
     pGame->pBall->h = 20;
@@ -79,7 +79,7 @@ void Init(Game *pGame) {
     pGame->pBall->x = (SCREEN_WIDTH / 2) - (pGame->pBall->w / 2);
     pGame->pBall->y = (SCREEN_HEIGHT / 2) - (pGame->pBall->h / 2);
     
-    pGame->pBall->speed = 0.25;
+    pGame->pBall->speed = 0.50;
     pGame->pBall->dirX = 0;
     pGame->pBall->dirY = 0;
 

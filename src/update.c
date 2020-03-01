@@ -26,7 +26,14 @@ void Update(Game *pGame, Uint32 deltaTime) {
     */
 
     if (pGame->pKeyboard->ArrowUp) {
-        printf("Arrow up : ON\n");
-        pGame->pKeyboard->ArrowUp = 0;
+        pGame->pPadle2->y -= pGame->pPadle2->speed * deltaTime;
+        //printf("Arrow up : ON\n");
+        //pGame->pKeyboard->ArrowUp = 0;
+    }
+
+    if (pGame->pKeyboard->ArrowDown) {
+        pGame->pPadle2->y += pGame->pPadle2->speed * deltaTime;
+        //printf("Arrow up : ON\n");
+        //pGame->pKeyboard->ArrowUp = 0;
     }
 }
