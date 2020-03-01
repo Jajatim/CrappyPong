@@ -32,4 +32,46 @@ void Init(Game *pGame) {
         fprintf(stderr, "ERROR : Keyboard creation failed.");
         exit(EXIT_FAILURE);
     }
+
+    pGame->pPadle1 = calloc(1, sizeof(Padle));
+    if (pGame->pPadle1 == NULL)
+    {
+        fprintf(stderr, "ERROR : pPadle1 creation failed.");
+        exit(EXIT_FAILURE);
+    }
+
+    pGame->pPadle2 = calloc(1, sizeof(Padle));
+    if (pGame->pPadle2 == NULL)
+    {
+        fprintf(stderr, "ERROR : pPadle2 creation failed.");
+        exit(EXIT_FAILURE);
+    }
+
+    pGame->pBall = calloc(1, sizeof(Ball));
+    if (pGame->pBall == NULL)
+    {
+        fprintf(stderr, "ERROR : pBall creation failed.");
+        exit(EXIT_FAILURE);
+    }
+
+    pGame->pPadle1.x = 200;
+    pGame->pPadle1.y = 200;
+    pGame->pPadle1.h = 200;
+    pGame->pPadle1.w = 200;
+    pGame->pPadle1.speed = 50;
+
+    pGame->pPadle2.x = 200;
+    pGame->pPadle2.y = 200;
+    pGame->pPadle2.h = 200;
+    pGame->pPadle2.w = 200;
+    pGame->pPadle2.speed = 50;
+
+    pGame->pBall.x = 200;
+    pGame->pBall.y = 200;
+    pGame->pBall.h = 200;
+    pGame->pBall.w = 200;
+    pGame->pBall.speed = 50;
+    pGame->pBall.dirX = 0;
+    pGame->pBall.dirY = 0;
+
 }

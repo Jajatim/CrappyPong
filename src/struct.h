@@ -29,11 +29,33 @@ typedef struct Keyboard {
     int KeySpace;
 } Keyboard;
 
+typedef struct Padle {
+    int x;
+    int y;
+    int h;
+    int w;
+    float speed;
+} Padle;
+
+typedef struct Ball {
+    int x;
+    int y;
+    int h;
+    int w;
+    float speed;
+    float dirX;
+    float dirY;
+} Ball;
+
 typedef struct Game {
     SDL_Window *pWindow;
     SDL_Renderer *pRenderer;
     Mouse *pMouse;
     Keyboard *pKeyboard;
+
+    Padle *pPadle1;
+    Padle *pPadle2;
+    Ball *pBall;
 } Game;
 
 #endif // STRUCT_H_INCLUDED
