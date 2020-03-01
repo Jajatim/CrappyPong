@@ -18,7 +18,7 @@
 int main(int argc, char** argv) {
     
     //Master Object creation & init
-    Game *pGame = calloc(1, sizeof(Game));
+    Game *pGame = calloc(1, sizeof(Game));  
     if (pGame == NULL){
         fprintf(stderr, "ERROR : Game creation failed.");
         exit(EXIT_FAILURE);
