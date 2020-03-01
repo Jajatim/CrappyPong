@@ -56,6 +56,9 @@ typedef struct Game {
     Padle *pPadle1;
     Padle *pPadle2;
     Ball *pBall;
+
+    int scoreP1;
+    int scoreP2;
 } Game;
 
 #endif // STRUCT_H_INCLUDED

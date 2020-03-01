@@ -53,13 +53,41 @@ void Update(Game *pGame, Uint32 deltaTime) {
     pGame->pBall->x += pGame->pBall->speed * deltaTime * pGame->pBall->dirX;
     pGame->pBall->y += pGame->pBall->speed * deltaTime * pGame->pBall->dirY;
 
-    if(pGame->pBall->x  + pGame->pBall->w >= SCREEN_WIDTH)
+    if(pGame->pBall->x  + pGame->pBall->w > SCREEN_WIDTH)
     {
-        pGame->pBall->x = SCREEN_WIDTH - pGame->pBall->w;
-        pGame->pBall->dirX * -1;
+        ReInit(pGame);
+        pGame->scoreP1++;
     }
 
+    if(pGame->pBall->x < 0)
+    {
+        ReInit(pGame);
+        pGame->scoreP2++;
+    }
 
+    if(pGame->pBall->y  + pGame->pBall->h > SCREEN_HEIGHT)
+    {
+        pGame->pBall->y = SCREEN_HEIGHT - pGame->pBall->h;
+        pGame->pBall->dirY *= -1;
+    }
+
+    if(pGame->pBall->y < 0)
+    {
+        pGame->pBall->y = 0;
+        pGame->pBall->dirY *= -1;
+    }
+
+    if(RectCollision(pGame->pPadle2, pGame->pBall))
+    {
+        pGame->pBall->x =  pGame->pPadle2->x - pGame->pBall->w - 1;
+        pGame->pBall->dirX *= -1;
+    }
+
+    if(RectCollision(pGame->pPadle1, pGame->pBall))
+    {
+        pGame->pBall->x = pGame->pPadle1->x + pGame->pPadle1->w + 1;
+        pGame->pBall->dirX *= -1;
+    }
 }
 
 int RectCollision(Padle *pRaquette,Ball *pBalle) {
@@ -73,4 +101,36 @@ int RectCollision(Padle *pRaquette,Ball *pBalle) {
         return 0;
     else
         return 1;
+}
+
+void ReInit(Game *pGame){
+
+        //pPadle1
+    pGame->pPadle1->h = 150;
+    pGame->pPadle1->w = 20;
+
+    pGame->pPadle1->x = 20;
+    pGame->pPadle1->y = (SCREEN_HEIGHT / 2.0) - (pGame->pPadle1->h / 2.0);
+
+    pGame->pPadle1->speed = 0.5;
+
+    //pPadle2
+    pGame->pPadle2->h = 150;
+    pGame->pPadle2->w = 20;
+
+    pGame->pPadle2->x = (SCREEN_WIDTH - 20.0) - pGame->pPadle2->w;
+    pGame->pPadle2->y = (SCREEN_HEIGHT / 2.0) - (pGame->pPadle2->h / 2.0);
+
+    pGame->pPadle2->speed = 0.5;
+
+    //pBall
+    pGame->pBall->h = 20;
+    pGame->pBall->w = 20;
+
+    pGame->pBall->x = (SCREEN_WIDTH / 2.0) - (pGame->pBall->w / 2.0);
+    pGame->pBall->y = (SCREEN_HEIGHT / 2.0) - (pGame->pBall->h / 2.0);
+    
+    pGame->pBall->speed = 0.50;
+    pGame->pBall->dirX = -1;
+    pGame->pBall->dirY = 0;
 }

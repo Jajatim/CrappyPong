@@ -7,5 +7,6 @@
 
 void Update(Game *pGame, Uint32 deltaTime);
 int RectCollision(Padle *pRaquette,Ball *pBalle);
+void ReInit(Game *pGame);
 
 #endif // UPDATE_H_INCLUDED

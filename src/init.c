@@ -33,6 +33,7 @@ void Init(Game *pGame) {
         exit(EXIT_FAILURE);
     }
 
+    // Game
     pGame->pPadle1 = calloc(1, sizeof(Padle));
     if (pGame->pPadle1 == NULL)
     {
