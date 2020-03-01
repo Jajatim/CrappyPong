@@ -3,7 +3,12 @@
 #include <stdio.h>
 
 //Other libraries
-#include "SDL.h"
+#ifdef _WIN32
+    #include "SDL.h"
+#else //#elif __linux__ 
+    #include <SDL2/SDL.h>
+#endif
+
 
 //Local includes
 #include "define.h"

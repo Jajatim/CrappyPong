@@ -1,7 +1,11 @@
 #ifndef STRUCT_H_INCLUDED
 #define STRUCT_H_INCLUDED
 
-#include "SDL.h"
+#ifdef _WIN32
+    #include "SDL.h"
+#else //#elif __linux__ 
+    #include <SDL2/SDL.h>
+#endif
 
 
 typedef struct Mouse {

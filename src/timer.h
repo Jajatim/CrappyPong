@@ -2,7 +2,12 @@
 #define TIMERS_H_INCLUDED
 
 
-#include "SDL.h"
+#ifdef _WIN32
+    #include "SDL.h"
+#else //#elif __linux__ 
+    #include <SDL2/SDL.h>
+#endif
+
 
 Uint32 Timer(Uint32 deltaTime);
 
