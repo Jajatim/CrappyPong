@@ -49,4 +49,28 @@ void Update(Game *pGame, Uint32 deltaTime) {
         if(pGame->pPadle1->y + pGame->pPadle1->h > SCREEN_HEIGHT - 5)
             pGame->pPadle1->y  = SCREEN_HEIGHT - pGame->pPadle1->h - 5;
     }
+
+    pGame->pBall->x += pGame->pBall->speed * deltaTime * pGame->pBall->dirX;
+    pGame->pBall->y += pGame->pBall->speed * deltaTime * pGame->pBall->dirY;
+
+    if(pGame->pBall->x  + pGame->pBall->w >= SCREEN_WIDTH)
+    {
+        pGame->pBall->x = SCREEN_WIDTH - pGame->pBall->w;
+        pGame->pBall->dirX * -1;
+    }
+
+
+}
+
+int RectCollision(Padle *pRaquette,Ball *pBalle) {
+    if (pRaquette->x+pRaquette->w < pBalle->x)
+        return 0;
+    if (pRaquette->x > pBalle->x+pBalle->w)
+        return 0;
+    if (pRaquette->y+pRaquette->h < pBalle->y)
+        return 0;
+    if (pRaquette->y > pBalle->y+pBalle->h)
+        return 0;
+    else
+        return 1;
 }

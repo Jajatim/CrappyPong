@@ -30,16 +30,16 @@ typedef struct Keyboard {
 } Keyboard;
 
 typedef struct Padle {
-    int x;
-    int y;
+    float x;
+    float y;
     int h;
     int w;
     float speed;
 } Padle;
 
 typedef struct Ball {
-    int x;
-    int y;
+    float x;
+    float y;
     int h;
     int w;
     float speed;

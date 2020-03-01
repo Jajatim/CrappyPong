@@ -6,5 +6,6 @@
 #include "define.h"
 
 void Update(Game *pGame, Uint32 deltaTime);
+int RectCollision(Padle *pRaquette,Ball *pBalle);
 
 #endif // UPDATE_H_INCLUDED

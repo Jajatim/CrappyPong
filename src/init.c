@@ -80,7 +80,7 @@ void Init(Game *pGame) {
     pGame->pBall->y = (SCREEN_HEIGHT / 2.0) - (pGame->pBall->h / 2.0);
     
     pGame->pBall->speed = 0.50;
-    pGame->pBall->dirX = 0;
+    pGame->pBall->dirX = 1;
     pGame->pBall->dirY = 0;
 
 }

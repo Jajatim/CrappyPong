@@ -9,20 +9,3 @@
 
 
 #endif
-
-/*
-
-int RectCollision(Raquette *pRaquette,Ball *pBalle) {
-    if (pRaquette->x+pRaquette->w < pBalle->x)
-        return 0;
-    if (pRaquette->x > pBalle->x+pBalle->w)
-        return 0;
-    if (pRaquette->y+pRaquette->h < pBalle->y)
-        return 0;
-    if (pRaquette->y > pBalle->y+pBalle->h)
-        return 0;
-    else
-        return 1;
-}
-
-*/
