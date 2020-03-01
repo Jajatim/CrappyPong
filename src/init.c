@@ -66,8 +66,8 @@ void Init(Game *pGame) {
     pGame->pPadle2->w = 10;
     pGame->pPadle2->speed = 50;
 
-    pGame->pBall->x = 200;
-    pGame->pBall->y = 200;
+    pGame->pBall->x = 550;
+    pGame->pBall->y = 150;
     pGame->pBall->h = 1;
     pGame->pBall->w = 1;
     pGame->pBall->speed = 50;

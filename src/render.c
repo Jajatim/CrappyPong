@@ -26,4 +26,12 @@ void RenderGame(Game *pGame) {
     dst.h = pGame->pPadle2->h;
     SDL_SetRenderDrawColor(pGame->pRenderer,255,255,255,255);
     SDL_RenderFillRect(pGame->pRenderer, &dst);
+
+    dst.x = pGame->pBall->x;
+    dst.y = pGame->pBall->y;
+    dst.w = pGame->pBall->w;
+    dst.h = pGame->pBall->h;
+    SDL_SetRenderDrawColor(pGame->pRenderer,255,255,255,255);
+    SDL_RenderFillRect(pGame->pRenderer, &dst);
+
 }
