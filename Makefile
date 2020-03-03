@@ -31,7 +31,7 @@ LIB = -Linclude/SDL2 -lmingw32 -lib/lSDL2main -lib/SlSDL2
 all: $(NAME)
 
 $(NAME): 
-	gcc $(SRCDIR) -o Game.exe -I include/SDL2 -L lib -lmingw32 -lSDL2main -lSDL2.dll
+	gcc $(SRCDIR) -o Pong.exe -I include/SDL2 -L lib -lmingw32 -lSDL2main -lSDL2.dll
 	Game.exe
 
 %.o: %.c
@@ -39,7 +39,8 @@ $(NAME):
 	$(CC) $(CFLAGS) -c $(call FixPath, $<) -o $(call FixPath, $@) $(call FixPath, $(SDLPATH))
 
 linux:
-	clear && gcc src/*.c -lm -o Game `sdl2-config --cflags --libs` && ./Game
+	gcc src/*.c -lm -o Pong `sdl2-config --cflags --libs`
+	./Pong
 
 clean:
 	$(DEL) $(call FixPath, $(OBJ))
