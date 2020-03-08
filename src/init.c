@@ -21,6 +21,13 @@ void Init(Game *pGame) {
         exit(EXIT_FAILURE);
     }
 
+    /*Init Texture
+    pGame->pTexture = ;
+    if (pGame->pTexture == NULL){
+        fprintf(stderr, "ERROR : Texture creation failed.");
+        exit(EXIT_FAILURE);
+    }*/
+
     //Init Mouse & Keyboard
     pGame->pMouse = calloc(1, sizeof(Mouse));
     if (pGame->pMouse == NULL){
@@ -80,7 +87,7 @@ void Init(Game *pGame) {
     pGame->pBall->x = (SCREEN_WIDTH / 2.0) - (pGame->pBall->w / 2.0);
     pGame->pBall->y = (SCREEN_HEIGHT / 2.0) - (pGame->pBall->h / 2.0);
     
-    pGame->pBall->speed = 0.650;
+    pGame->pBall->speed = 0.50;
     pGame->pBall->dirX = 0;
     pGame->pBall->dirY = 0;
 

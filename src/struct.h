@@ -50,6 +50,7 @@ typedef struct Ball {
 typedef struct Game {
     SDL_Window *pWindow;
     SDL_Renderer *pRenderer;
+    SDL_Texture *ptexture;
     Mouse *pMouse;
     Keyboard *pKeyboard;
 
