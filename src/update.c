@@ -39,14 +39,16 @@ void Update(Game *pGame, Uint32 deltaTime) {
     if(pGame->pBall->x  + pGame->pBall->w > SCREEN_WIDTH)
     {
         ReInit(pGame);
-        pGame->scoreP1++;
-        printf("%d - %d\n",pGame->scoreP1,pGame->scoreP2);
+        if(pGame->scoreP1++ > 8)
+            printf("Victoire du joueur P1 (gauche) !\n");
+            //Init(pGame);
     }
     if(pGame->pBall->x < 0)
     {
         ReInit(pGame);
-        pGame->scoreP2++;
-        printf("%d - %d\n",pGame->scoreP1,pGame->scoreP2);
+        if(pGame->scoreP2++ > 8)
+            printf("Victoire du joueur P2 (droite) !\n");
+            //Init(pGame);
     }
 
     //Collision balle/murs
@@ -135,4 +137,5 @@ void ReInit(Game *pGame){
     pGame->pBall->speed = 0.50;
     pGame->pBall->dirX = 0;
     pGame->pBall->dirY = 0;
+
 }

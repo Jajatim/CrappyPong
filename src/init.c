@@ -20,13 +20,21 @@ void Init(Game *pGame) {
         fprintf(stderr, "ERROR : Renderer creation failed.");
         exit(EXIT_FAILURE);
     }
-
-    /*Init Texture
-    pGame->pTexture = ;
-    if (pGame->pTexture == NULL){
+    
+    // Init Texture
+    pGame->pSurface = SDL_LoadBMP("src/numbers.bmp");
+    if(pGame->pSurface == NULL)
+    {
+        printf("Error SDL LoadBMP\n");
+        exit(EXIT_FAILURE);
+    }
+    pGame->pTexture = SDL_CreateTextureFromSurface(pGame->pRenderer, pGame->pSurface);
+    if(pGame->pTexture == NULL)
+    {
         fprintf(stderr, "ERROR : Texture creation failed.");
         exit(EXIT_FAILURE);
-    }*/
+    }
+    SDL_FreeSurface(pGame->pSurface);
 
     //Init Mouse & Keyboard
     pGame->pMouse = calloc(1, sizeof(Mouse));
