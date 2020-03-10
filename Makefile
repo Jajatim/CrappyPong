@@ -1,5 +1,5 @@
 # GENERIC
-NAME = prog
+NAME = Pong
 CC = gcc
 CFLAGS = -Wall -Wextra
 
@@ -18,7 +18,7 @@ OBJ = $(SRCDIR:.c=.o)
 
 
 # OS DEPENDANT VARIABLES
-$(info Compiling for Windows.)
+#$(info Compiling for Windows.)
 EXT = .exe
 DEL = del /q
 FixPath = $(subst /,\,$1)
@@ -28,19 +28,17 @@ LIB = -Linclude/SDL2 -lmingw32 -lib/lSDL2main -lib/SlSDL2
 
 
 # RULES
+
+# window rules
 all: $(NAME)
 
 $(NAME): 
-	gcc $(SRCDIR) -o Pong.exe -I include/SDL2 -L lib -lmingw32 -lSDL2main -lSDL2.dll
-	Game.exe
+	gcc $(SRCDIR) -o $(NAME).exe -I include/SDL2 -L lib -lmingw32 -lSDL2main -lSDL2.dll
+	$(NAME).exe
 
 %.o: %.c
 #	$(info Compiling $< into $@)
 	$(CC) $(CFLAGS) -c $(call FixPath, $<) -o $(call FixPath, $@) $(call FixPath, $(SDLPATH))
-
-linux:
-	gcc src/*.c -lm -o Pong `sdl2-config --cflags --libs`
-	./Pong
 
 clean:
 	$(DEL) $(call FixPath, $(OBJ))
@@ -49,6 +47,21 @@ fclean: clean
 	$(DEL) $(call FixPath, $(NAME)$(EXT))
 
 re: fclean all
+
+# linux rules
+linux:
+	$(CC) $(CFLAGS) src/*.c -lm -o $(NAME) `sdl2-config --cflags --libs` 
+	./$(NAME)
+
+linuxClean:
+	rm -rf *.o
+
+linuxFClean: linuxClean
+	rm -rf $(NAME)
+
+linuxRe: linuxFClean linux
+
+# MAC rules
 
 
 .PHONY: err, all, clean, fclean, re

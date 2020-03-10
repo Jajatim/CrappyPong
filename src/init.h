@@ -12,5 +12,6 @@
 #include "struct.h"
 
 void Init(Game *pGame);
+void cleanResources(Game *pGame);
 
 #endif // INIT_H_INCLUDED

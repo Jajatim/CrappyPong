@@ -3,6 +3,7 @@
 
 #include <stdio.h>
 #include "struct.h"
+#include "init.h"
 #include "define.h"
 
 void Update(Game *pGame, Uint32 deltaTime);

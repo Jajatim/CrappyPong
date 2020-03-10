@@ -7,5 +7,4 @@
 #define UPDATE_TIMER 4
 #define RENDER_TIMER 16
 
-
 #endif

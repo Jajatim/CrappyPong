@@ -13,4 +13,5 @@
 void Render(Game *pGame);
 void RenderGame(Game *pGame);
 void DrawScore(Game *pGame, SDL_Rect background, SDL_Rect dst, int player);
+
 #endif // RENDER_H_INCLUDED

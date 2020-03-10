@@ -57,9 +57,7 @@ int main(int argc, char** argv) {
     }
 
     //End program
-    SDL_DestroyRenderer(pGame->pRenderer);
-    SDL_DestroyWindow(pGame->pWindow);
-    SDL_Quit();
+    cleanResources(pGame);
 
     return EXIT_SUCCESS;
 }
